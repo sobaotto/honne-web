@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "format": "prettier --write './**/*.{js,ts,jsx,tsx,json,html,css}'"
+    "format": "prettier --write './**/*.{js,ts,jsx,tsx,json,html,css}'",
+    "start": "NODE_ENV=development webpack-dev-server",
+    "build": "NODE_ENV=development webpack"
   },
   "devDependencies": {
     "@types/react": "^18.0.21",
