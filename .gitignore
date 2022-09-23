@@ -1,3 +1,8 @@
 node_modules
 
+# webpack
 dist
+
+# Jest
+coverage
+__mocks__
