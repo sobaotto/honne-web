@@ -1,22 +1,20 @@
 import * as React from "react";
 import Img from "./example.png";
 import "./reset.css";
-
-//テストしやすいようにわざと作った関数
-export const generateHelloWorld = () => {
-  return "hello world.";
-};
+import { useTranslation } from 'react-i18next';
 
 export const App = () => {
+  const [t] = useTranslation()
+
   const [isMounted, setMount] = React.useState(false);
   React.useEffect(() => {
     setMount(true);
   }, []);
   return (
-    <div data-testid="text">
+    <div data-test id="text">
       {isMounted && (
         <div>
-          {generateHelloWorld()}
+          {t('hoge')}
           <img src={Img}></img>
         </div>
       )}
