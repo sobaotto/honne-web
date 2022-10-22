@@ -1,23 +1,25 @@
-import * as React from "react";
-import Img from "./example.png";
-import "./reset.css";
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import MainContent from "./components/pages/Top";
+import Sidebar from "./components/organisms/Sidebar";
+import { Container } from "./styles/styled";
+import { useLogin } from "./hooks/useLogin";
+import { LoginParams } from "./hooks/useLogin/types";
 
 export const App = () => {
-  const [t] = useTranslation()
+  const [loginParams, setLoginParams] = React.useState<LoginParams>({
+    name: "taro",
+    email: "taro@test.com",
+    password: "password",
+    password_confirmation: "password",
+  });
 
-  const [isMounted, setMount] = React.useState(false);
-  React.useEffect(() => {
-    setMount(true);
-  }, []);
+  const { currentUser, isLoading } = useLogin(loginParams);
+
   return (
-    <div data-test id="text">
-      {isMounted && (
-        <div>
-          {t('hoge')}
-          <img src={Img}></img>
-        </div>
-      )}
-    </div>
+    <Container>
+      {/* <button onClick={() => useLogin(loginParams)}>ログイン</button> */}
+      <Sidebar user={currentUser} />
+      <MainContent />
+    </Container>
   );
 };
