@@ -7,18 +7,28 @@ import {
   Text,
   QuestionDetailContainer,
   Title,
+  UpSideWrapper,
+  RightSideWrapper,
 } from "./styled";
 import userPhoto from "./userPhoto.png";
+import { QuestionStatus } from "~/components/atoms/QuestionStatus";
 import { QuestionItemProps } from "./types";
 
 const QuestionItem = React.memo(
   ({ isSelected, question, onClick }: QuestionItemProps) => {
     return (
       <QuestionItemContainer onClick={onClick} isSelected={isSelected}>
-        <LeftSideWrapper>
-          <UserImg src={userPhoto} />
-          <RespondentName>{question.respondentName}</RespondentName>
-        </LeftSideWrapper>
+        <UpSideWrapper>
+          <LeftSideWrapper>
+            <UserImg src={userPhoto} />
+            <RespondentName>{question.respondentName}</RespondentName>
+          </LeftSideWrapper>
+          <RightSideWrapper>
+            <QuestionStatus
+              questionStatus={question.questionStatus}
+            ></QuestionStatus>
+          </RightSideWrapper>
+        </UpSideWrapper>
         <QuestionDetailContainer>
           <Title>{"｜" + question.title}</Title>
           <Text>{question.text}</Text>
