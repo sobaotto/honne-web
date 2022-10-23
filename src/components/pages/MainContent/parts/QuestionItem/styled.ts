@@ -19,6 +19,7 @@ export const QuestionItemContainer = styled.div<QuestionItemContainerProps>`
   border-radius: ${px2rem(6)};
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 `;
 
 export const UserImg = styled.img`
