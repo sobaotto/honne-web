@@ -1,5 +1,5 @@
 import React from "react";
-import MainContent from "./components/pages/Top";
+import MainContent from "./components/pages/MainContent";
 import Sidebar from "./components/organisms/Sidebar";
 import { Container } from "./styles/styled";
 import { useLogin } from "./hooks/useLogin";

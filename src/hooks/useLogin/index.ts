@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { User } from "~/types/types";
+import { User } from "~/types";
 import { LoginParams } from "./types";
 
 export const useLogin = (params: LoginParams) => {
