@@ -1,3 +1,7 @@
 {
-  "hoge": "あああ"
+  "createNewQuestion": "＋ 新しく質問する",
+  "questionStatus": {
+    "resolved": "解決済み",
+    "unresolved": "回答待ち"
+  }
 }
