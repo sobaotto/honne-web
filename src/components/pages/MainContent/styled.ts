@@ -36,7 +36,7 @@ export const ButtonToCreateNewQuestion = styled(
 export const QuestionItemsWrapper = styled.div`
   flex: 1;
   overflow-wrap: break-word;
-  overflow: auto;
+  overflow-x: hidden;
   margin-top: ${px2rem(31)};
 `;
 
