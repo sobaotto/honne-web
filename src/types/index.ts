@@ -5,7 +5,7 @@ export type User = {
 };
 
 export type Question = {
-  respondentName: string;
+  respondent_name: string;
   title: string;
   text: string;
   question_status: string;

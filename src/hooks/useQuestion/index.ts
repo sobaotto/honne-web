@@ -12,7 +12,7 @@ export const useQuestion = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setQuestions(data);
+        setQuestions(data.questions);
         setIsLoading(false);
         // TODO:違う方法で新規投稿したデータを取得する。
         // （isPostedで管理すると2回リクエストが送られるので、直さないといけない。）

@@ -2,6 +2,7 @@ import React from "react";
 import { FormContainer } from "./styled";
 import { useForm } from "react-hook-form";
 import { FormData, FormToCreateQuestionProps } from "./types";
+import { useUser } from "~/hooks/useUser";
 
 const FormToCreateQuestion = React.memo(
   ({
@@ -9,6 +10,7 @@ const FormToCreateQuestion = React.memo(
     setSelectedQuestionIndex,
     setIsCreatingQuestion,
   }: FormToCreateQuestionProps) => {
+    const { users, isLoading } = useUser();
     const {
       register,
       handleSubmit,
@@ -38,6 +40,14 @@ const FormToCreateQuestion = React.memo(
       <FormContainer>
         <div>新規質問</div>
         <form onSubmit={onSubmit}>
+          <br />
+          <label>質問相手</label>
+          <br />
+          <select {...register("respondent_id")}>
+            <option hidden>選択してください</option>
+            {users &&
+              users.map((user) => <option value={user.id}>{user.name}</option>)}
+          </select>
           <br />
           <label>タイトル</label>
           <br />
