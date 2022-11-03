@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useQuestion } from "~/hooks/useQuestion";
+import FormToCreateQuestion from "./parts/FormToCreateQuestion";
 import QuestionItem from "./parts/QuestionItem";
 import {
   Container,
@@ -18,6 +19,8 @@ const MainContent = React.memo(() => {
   const [selectedQuestionIndex, setSelectedQuestionIndex] = React.useState<
     number | null
   >(null);
+  const [isCreatingQuestion, setIsCreatingQuestion] =
+    React.useState<boolean>(false);
 
   return (
     <Container>
@@ -27,6 +30,7 @@ const MainContent = React.memo(() => {
           <ButtonToCreateNewQuestion
             onClick={() => {
               setSelectedQuestionIndex(null);
+              setIsCreatingQuestion(true);
             }}
           >
             {t("createNewQuestion")}
@@ -43,20 +47,30 @@ const MainContent = React.memo(() => {
                     index === selectedQuestionIndex
                       ? setSelectedQuestionIndex(null)
                       : setSelectedQuestionIndex(index);
+
+                    setIsCreatingQuestion(false);
                   }}
                 />
               );
             })}
         </QuestionItemsWrapper>
       </QuestionsContainer>
-      <QuestionDetail>
-        {selectedQuestionIndex !== null && questions && (
-          <>
-            <div>{"｜" + questions[selectedQuestionIndex].title}</div>
-            <div>{questions[selectedQuestionIndex].text}</div>
-          </>
-        )}
-      </QuestionDetail>
+      {isCreatingQuestion ? (
+        <FormToCreateQuestion
+          setIsPosted={setIsPosted}
+          setSelectedQuestionIndex={setSelectedQuestionIndex}
+          setIsCreatingQuestion={setIsCreatingQuestion}
+        />
+      ) : (
+        <QuestionDetail>
+          {selectedQuestionIndex !== null && questions && (
+            <>
+              <div>{"｜" + questions[selectedQuestionIndex].title}</div>
+              <div>{questions[selectedQuestionIndex].text}</div>
+            </>
+          )}
+        </QuestionDetail>
+      )}
     </Container>
   );
 });
