@@ -19,7 +19,7 @@ export const App = () => {
     <Container>
       {/* <button onClick={() => useLogin(loginParams)}>ログイン</button> */}
       <Sidebar user={currentUser} />
-      <MainContent />
+      {currentUser && <MainContent />}
     </Container>
   );
 };
