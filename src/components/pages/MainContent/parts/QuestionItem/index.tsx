@@ -25,7 +25,7 @@ const QuestionItem = React.memo(
           </LeftSideWrapper>
           <RightSideWrapper>
             <QuestionStatus
-              questionStatus={question.questionStatus}
+              questionStatus={question.question_status}
             ></QuestionStatus>
           </RightSideWrapper>
         </UpSideWrapper>
