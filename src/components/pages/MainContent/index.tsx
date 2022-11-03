@@ -65,7 +65,15 @@ const MainContent = React.memo(() => {
         <QuestionDetail>
           {selectedQuestionIndex !== null && questions && (
             <>
-              <div>{"｜" + questions[selectedQuestionIndex].title}</div>
+              <br />
+              <div>
+                <u>タイトル</u>
+              </div>
+              <div>{questions[selectedQuestionIndex].title}</div>
+              <br />
+              <div>
+                <u>質問内容</u>
+              </div>
               <div>{questions[selectedQuestionIndex].text}</div>
             </>
           )}

@@ -38,7 +38,10 @@ const FormToCreateQuestion = React.memo(
 
     return (
       <FormContainer>
-        <div>新規質問</div>
+        <br />
+        <div>
+          <u>新規質問</u>
+        </div>
         <form onSubmit={onSubmit}>
           <br />
           <label>質問相手</label>

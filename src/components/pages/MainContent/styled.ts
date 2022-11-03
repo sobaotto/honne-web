@@ -46,4 +46,5 @@ export const QuestionDetail = styled.div`
   margin-left: ${px2rem(64)};
   margin-right: ${px2rem(60)};
   margin-top: ${px2rem(109)};
+  text-align: center;
 `;
