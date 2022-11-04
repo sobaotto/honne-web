@@ -3,8 +3,8 @@ import { px2rem } from "~/styles/utils";
 import { LinkProps } from "./types";
 
 export const Link = styled.a<LinkProps>`
-  ${({ currentPath }) =>
-    currentPath === "questions"
+  ${({ navItemPath, showingPagePath }) =>
+    showingPagePath === navItemPath
       ? css`
           color: #2a8bf2;
         `

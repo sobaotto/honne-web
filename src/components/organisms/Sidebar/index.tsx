@@ -4,13 +4,18 @@ import NavigationItems from "~/components/molecules/NavigationItems";
 import { Container } from "./styled";
 import { SidebarProps } from "./types";
 
-const Sidebar = React.memo(({ user }: SidebarProps) => {
-  return (
-    <Container>
-      <Profile user={user} />
-      <NavigationItems />
-    </Container>
-  );
-});
+const Sidebar = React.memo(
+  ({ user, setShowingPagePath, showingPagePath }: SidebarProps) => {
+    return (
+      <Container>
+        <Profile user={user} />
+        <NavigationItems
+          setShowingPagePath={setShowingPagePath}
+          showingPagePath={showingPagePath}
+        />
+      </Container>
+    );
+  }
+);
 
 export default Sidebar;

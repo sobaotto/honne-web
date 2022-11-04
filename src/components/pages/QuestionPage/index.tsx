@@ -13,7 +13,7 @@ import {
   QuestionItemsWrapper,
 } from "./styled";
 
-const MainContent = React.memo(() => {
+const QuestionPage = React.memo(() => {
   const [t] = useTranslation();
   const { questions, isLoading, setIsPosted } = useQuestion();
   const [selectedQuestionIndex, setSelectedQuestionIndex] = React.useState<
@@ -83,4 +83,4 @@ const MainContent = React.memo(() => {
   );
 });
 
-export default MainContent;
+export default QuestionPage;

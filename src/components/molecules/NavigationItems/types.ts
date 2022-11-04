@@ -1,5 +1,6 @@
-import { User } from "~/types";
+import { showingPagePath } from "~/types";
 
-export type NavigationItems = {
-  user: User | null;
+export type SideNavigationProps = {
+  setShowingPagePath: React.Dispatch<React.SetStateAction<showingPagePath>>;
+  showingPagePath: showingPagePath;
 };

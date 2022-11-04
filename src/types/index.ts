@@ -11,3 +11,11 @@ export type Question = {
   question_status: string;
   is_public: boolean;
 };
+
+export type showingPagePath =
+  | "questions"
+  | "answers"
+  | "home"
+  | "contacts"
+  | "settings"
+  | "logout";
