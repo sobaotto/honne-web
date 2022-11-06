@@ -3,5 +3,9 @@
   "questionStatus": {
     "resolved": "解決済み",
     "unresolved": "回答待ち"
+  },
+  "answerStatus": {
+    "resolved": "回答済み",
+    "unresolved": "未回答"
   }
 }
