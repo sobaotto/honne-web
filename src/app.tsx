@@ -2,36 +2,44 @@ import React from "react";
 import QuestionPage from "./components/pages/QuestionPage";
 import Sidebar from "./components/organisms/Sidebar";
 import { Container } from "./styles/styled";
-import { useLogin } from "./hooks/useLogin";
-import { LoginParams } from "./hooks/useLogin/types";
-import { showingPagePath } from "./types";
+import { showingPagePath, User } from "./types";
 import AnswerPage from "./components/pages/AnswerPage";
+import LoginPage from "./components/pages/LoginPage";
+import { useSession } from "./hooks/useSession";
 
 export const App = () => {
-  const [loginParams, setLoginParams] = React.useState<LoginParams>({
-    name: "taro",
-    email: "taro@test.com",
-    password: "password",
-    password_confirmation: "password",
-  });
-
-  const { currentUser, isLoading } = useLogin(loginParams);
+  const [currentUser, setCurrentUser] = React.useState<User | null>(null);
+  const { isLoading } = useSession({ setCurrentUser });
 
   const [showingPagePath, setShowingPagePath] =
     React.useState<showingPagePath>("questions");
 
   return (
     <Container>
-      {/* <button onClick={() => useLogin(loginParams)}>ログイン</button> */}
-      <Sidebar
-        user={currentUser}
-        setShowingPagePath={setShowingPagePath}
-        showingPagePath={showingPagePath}
-      />
-      {currentUser && showingPagePath === "questions" ? (
-        <QuestionPage />
+      {isLoading ? (
+        <div>ローディング中</div>
+      ) : !currentUser ? (
+        <LoginPage setCurrentUser={setCurrentUser} />
       ) : (
-        <AnswerPage />
+        <>
+          <Sidebar
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+            setShowingPagePath={setShowingPagePath}
+            showingPagePath={showingPagePath}
+          />
+          {currentUser &&
+            (showingPagePath === "questions" ? (
+              <QuestionPage
+                showingPagePath={showingPagePath}
+                currentUser={currentUser}
+              />
+            ) : showingPagePath === "answers" ? (
+              <AnswerPage showingPagePath={showingPagePath} />
+            ) : (
+              <div>未完成</div>
+            ))}
+        </>
       )}
     </Container>
   );
