@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import styled, { css } from "styled-components";
 import { px2rem } from "~/styles/utils";
 import { QuestionItemContainerProps } from "./types";
