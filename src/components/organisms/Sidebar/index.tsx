@@ -5,11 +5,17 @@ import { Container } from "./styled";
 import { SidebarProps } from "./types";
 
 const Sidebar = React.memo(
-  ({ user, setShowingPagePath, showingPagePath }: SidebarProps) => {
+  ({
+    currentUser,
+    setShowingPagePath,
+    showingPagePath,
+    setCurrentUser,
+  }: SidebarProps) => {
     return (
       <Container>
-        <Profile user={user} />
+        <Profile currentUser={currentUser} />
         <NavigationItems
+          setCurrentUser={setCurrentUser}
           setShowingPagePath={setShowingPagePath}
           showingPagePath={showingPagePath}
         />

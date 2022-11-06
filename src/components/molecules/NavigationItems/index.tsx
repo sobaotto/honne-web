@@ -1,15 +1,17 @@
 import React from "react";
+import LogoutNav from "~/components/atoms/LogoutNav";
 import NavItem from "~/components/atoms/NavItem";
-import {
-  LOGOUT_ITEM,
-  NAVIGATION_ITEMS,
-} from "~/components/atoms/NavItem/constant";
+import { NAVIGATION_ITEMS } from "~/components/atoms/NavItem/constant";
 import { Container, ItemWrapper } from "./styled";
 import { SideNavigationProps } from "./types";
 
 // 今は雛形作ったので、後でreact-routerとか導入する
 const SideNavigation = React.memo(
-  ({ setShowingPagePath, showingPagePath }: SideNavigationProps) => {
+  ({
+    setShowingPagePath,
+    showingPagePath,
+    setCurrentUser,
+  }: SideNavigationProps) => {
     return (
       <Container>
         <ItemWrapper>
@@ -21,8 +23,8 @@ const SideNavigation = React.memo(
             />
           ))}
         </ItemWrapper>
-        <NavItem
-          item={LOGOUT_ITEM}
+        <LogoutNav
+          setCurrentUser={setCurrentUser}
           setShowingPagePath={setShowingPagePath}
           showingPagePath={showingPagePath}
         />

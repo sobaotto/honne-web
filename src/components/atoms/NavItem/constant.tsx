@@ -14,8 +14,3 @@ export const NAVIGATION_ITEMS = [
   { path: "contacts", icon: <RiQuestionAnswerLine size={ICON_SIZE} /> },
   { path: "settings", icon: <RiQuestionAnswerLine size={ICON_SIZE} /> },
 ] as Array<NavigationItem>;
-
-export const LOGOUT_ITEM = {
-  path: "logout",
-  icon: <RiQuestionAnswerLine size={ICON_SIZE} />,
-} as NavigationItem;
