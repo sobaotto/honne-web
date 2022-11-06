@@ -33,13 +33,6 @@ export const ButtonToCreateNewQuestion = styled(
   Button
 )<ButtonToCreateNewQuestionProps>``;
 
-export const QuestionItemsWrapper = styled.div`
-  flex: 1;
-  overflow-wrap: break-word;
-  overflow-x: hidden;
-  margin-top: ${px2rem(31)};
-`;
-
 export const QuestionDetail = styled.div`
   flex: 1;
   border: 1px solid;

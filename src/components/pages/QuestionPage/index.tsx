@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import QuestionItems from "~/components/molecules/QuestionItems";
 import { useQuestion } from "~/hooks/useQuestion";
 import FormToCreateQuestion from "./parts/FormToCreateQuestion";
-import QuestionItem from "./parts/QuestionItem";
 import {
   Container,
   QuestionsContainer,
@@ -10,7 +10,6 @@ import {
   HeaderContainer,
   Title,
   ButtonToCreateNewQuestion,
-  QuestionItemsWrapper,
 } from "./styled";
 import { QuestionPageProps } from "./types";
 
@@ -41,24 +40,12 @@ const QuestionPage = React.memo(
               {t("createNewQuestion")}
             </ButtonToCreateNewQuestion>
           </HeaderContainer>
-          <QuestionItemsWrapper>
-            {questionItems &&
-              questionItems.map((questionItem, index) => {
-                return (
-                  <QuestionItem
-                    isSelected={index === selectedQuestionIndex}
-                    questionItem={questionItem}
-                    onClick={() => {
-                      index === selectedQuestionIndex
-                        ? setSelectedQuestionIndex(null)
-                        : setSelectedQuestionIndex(index);
-
-                      setIsCreatingQuestion(false);
-                    }}
-                  />
-                );
-              })}
-          </QuestionItemsWrapper>
+          <QuestionItems
+            questionItems={questionItems}
+            selectedQuestionIndex={selectedQuestionIndex}
+            setSelectedQuestionIndex={setSelectedQuestionIndex}
+            setIsCreatingQuestion={setIsCreatingQuestion}
+          />
         </QuestionsContainer>
         {isCreatingQuestion ? (
           <FormToCreateQuestion

@@ -27,13 +27,6 @@ export const Title = styled.div`
   color: #0d1c2e;
 `;
 
-export const AnswerItemsWrapper = styled.div`
-  flex: 1;
-  overflow-wrap: break-word;
-  overflow-x: hidden;
-  margin-top: ${px2rem(31)};
-`;
-
 export const AnswerDetail = styled.div`
   flex: 1;
   border: 1px solid;

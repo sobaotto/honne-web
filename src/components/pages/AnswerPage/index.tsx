@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import AnswerItems from "~/components/molecules/AnswerItems";
 import { useAnswer } from "~/hooks/useAnswer";
-import AnswerItem from "./parts/AnswerItem";
 import FormToCreateAnswer from "./parts/FormToCreateAnswer";
 import {
   Container,
@@ -9,7 +9,6 @@ import {
   AnswerDetail,
   HeaderContainer,
   Title,
-  AnswerItemsWrapper,
 } from "./styled";
 import { AnswerPageProps } from "./types";
 
@@ -28,22 +27,11 @@ const AnswerPage = React.memo(({ showingPagePath }: AnswerPageProps) => {
         <HeaderContainer>
           <Title>Answer</Title>
         </HeaderContainer>
-        <AnswerItemsWrapper>
-          {askedQuestionItems &&
-            askedQuestionItems.map((askedQuestionItem, index) => {
-              return (
-                <AnswerItem
-                  isSelected={index === selectedQuestionIndex}
-                  askedQuestionItem={askedQuestionItem}
-                  onClick={() => {
-                    index === selectedQuestionIndex
-                      ? setSelectedQuestionIndex(null)
-                      : setSelectedQuestionIndex(index);
-                  }}
-                />
-              );
-            })}
-        </AnswerItemsWrapper>
+        <AnswerItems
+          askedQuestionItems={askedQuestionItems}
+          selectedQuestionIndex={selectedQuestionIndex}
+          setSelectedQuestionIndex={setSelectedQuestionIndex}
+        />
       </AnswersContainer>
       {
         <AnswerDetail>
@@ -53,7 +41,6 @@ const AnswerPage = React.memo(({ showingPagePath }: AnswerPageProps) => {
               <div>
                 <u>タイトル</u>
               </div>
-              {/* 疑問：askedQuestionItems[selectedQuestionIndex]は、useStateで保持した方がいいのか？ */}
               <div>
                 {askedQuestionItems[selectedQuestionIndex].question.title}
               </div>
