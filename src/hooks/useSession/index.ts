@@ -4,7 +4,7 @@ import { useSessionProps } from "./types";
 export const useSession = ({ setCurrentUser }: useSessionProps) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
-  (() => {
+  React.useEffect(() => {
     fetch(`http://localhost:3001/me`, {
       method: "GET",
       mode: "cors",
@@ -15,7 +15,7 @@ export const useSession = ({ setCurrentUser }: useSessionProps) => {
         setCurrentUser(data);
         setIsLoading(false);
       });
-  })();
+  }, []);
 
   return {
     isLoading,
