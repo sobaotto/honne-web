@@ -15,23 +15,23 @@ import { QuestionStatus } from "~/components/atoms/QuestionStatus";
 import { QuestionItemProps } from "./types";
 
 const QuestionItem = React.memo(
-  ({ isSelected, question, onClick }: QuestionItemProps) => {
+  ({ isSelected, questionItem, onClick }: QuestionItemProps) => {
     return (
       <QuestionItemContainer onClick={onClick} isSelected={isSelected}>
         <UpSideWrapper>
           <LeftSideWrapper>
             <UserImg src={userPhoto} />
-            <RespondentName>{question.respondent_name}</RespondentName>
+            <RespondentName>{questionItem.respondent_name}</RespondentName>
           </LeftSideWrapper>
           <RightSideWrapper>
             <QuestionStatus
-              questionStatus={question.question_status}
+              questionStatus={questionItem.question.question_status}
             ></QuestionStatus>
           </RightSideWrapper>
         </UpSideWrapper>
         <QuestionDetailContainer>
-          <Title>{"｜" + question.title}</Title>
-          <Text>{question.text}</Text>
+          <Title>{"｜" + questionItem.question.title}</Title>
+          <Text>{questionItem.question.text}</Text>
         </QuestionDetailContainer>
       </QuestionItemContainer>
     );

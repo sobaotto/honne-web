@@ -6,6 +6,7 @@ import { useUser } from "~/hooks/useUser";
 
 const FormToCreateQuestion = React.memo(
   ({
+    currentUser,
     setIsPosted,
     setSelectedQuestionIndex,
     setIsCreatingQuestion,
@@ -24,9 +25,11 @@ const FormToCreateQuestion = React.memo(
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: 1, // TODO:ログインできるようにしたら、ここは`currentUser.id`にする
+          user_id: currentUser.id,
           ...formData,
         }),
+        mode: "cors",
+        credentials: "include",
       })
         .then((res) => res.json())
         .then((data) => {

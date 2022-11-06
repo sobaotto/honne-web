@@ -35,7 +35,7 @@ const LoginPage = React.memo(({ setCurrentUser }: LoginPageProps) => {
         <br />
         <label>パスワード</label>
         <br />
-        <input {...register("password")} type={"password"} />
+        <input {...register("password")} />
         <br />
         <button type="submit">ログイン</button>
       </form>

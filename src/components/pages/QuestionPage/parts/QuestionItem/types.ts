@@ -1,9 +1,9 @@
 import { MouseEventHandler } from "react";
-import { Question } from "~/types";
+import { QuestionItem } from "~/types";
 
 export type QuestionItemProps = {
   isSelected: boolean;
-  question: Question;
+  questionItem: QuestionItem;
   onClick: MouseEventHandler<HTMLDivElement>;
 };
 
