@@ -5,7 +5,7 @@ import { LogoutNavProps } from "./types";
 
 export const LogoutNav = React.memo(
   ({ setShowingPagePath, showingPagePath, setCurrentUser }: LogoutNavProps) => {
-    const Logout = () => {
+    const Logout = React.useCallback(() => {
       fetch(`http://localhost:3001/logout`, {
         method: "DELETE",
         mode: "cors",
@@ -14,7 +14,7 @@ export const LogoutNav = React.memo(
         setCurrentUser(null);
         setShowingPagePath("questions");
       });
-    };
+    }, [setCurrentUser, setShowingPagePath]);
 
     return (
       <Link
