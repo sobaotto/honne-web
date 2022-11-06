@@ -5,11 +5,28 @@ export type User = {
 };
 
 export type Question = {
-  respondent_name: string;
+  id: number;
   title: string;
   text: string;
   question_status: string;
   is_public: boolean;
+};
+
+export type Answer = {
+  id: number;
+  text: string;
+} | null;
+
+export type QuestionItem = {
+  respondent_name: string;
+  question: Question;
+  answer: Answer;
+};
+
+export type askedQuestionItem = {
+  questioner_name: string;
+  question: Question;
+  answer: Answer;
 };
 
 export type showingPagePath =
