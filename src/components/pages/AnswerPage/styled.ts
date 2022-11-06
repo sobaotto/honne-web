@@ -10,9 +10,9 @@ export const Container = styled.div`
 export const AnswersContainer = styled.div`
   margin-left: ${px2rem(59)};
   margin-top: ${px2rem(109)};
-  width: ${px2rem(579)};
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
 
 export const HeaderContainer = styled.div`

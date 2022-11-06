@@ -10,7 +10,6 @@ export const AnswerItemContainer = styled.div<AnswerItemContainerProps>`
           border: 1px solid rgba(112, 124, 151, 0.5);
         `
       : null}
-  width: ${px2rem(580)};
   height: ${px2rem(220)};
   padding: ${px2rem(30)} ${px2rem(40)} ${px2rem(40)} ${px2rem(40)};
   margin-bottom: ${px2rem(20)};
