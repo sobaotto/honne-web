@@ -15,18 +15,18 @@ export type Question = {
 export type Answer = {
   id: number;
   text: string;
-} | null;
+};
 
 export type QuestionItem = {
   respondent_name: string;
   question: Question;
-  answer: Answer;
+  answer?: Answer;
 };
 
 export type askedQuestionItem = {
   questioner_name: string;
   question: Question;
-  answer: Answer;
+  answer?: Answer;
 };
 
 export type showingPagePath =
