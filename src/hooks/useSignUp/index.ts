@@ -1,10 +1,7 @@
 import React from "react";
 import { useSignUpProps } from "./types";
 
-export const useSignUp = ({
-  setCurrentUser,
-  handleSubmit,
-}: useSignUpProps) => {
+export const useSignUp = ({ setCurrentUser, handleSubmit }: useSignUpProps) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   const onSubmit = handleSubmit(async (formData) => {

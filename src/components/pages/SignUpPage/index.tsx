@@ -13,7 +13,7 @@ const SignUpPage = React.memo(({ setCurrentUser }: SignUpPageProps) => {
 
   const { isLoading, onSubmit } = useSignUp({
     setCurrentUser,
-    handleSubmit
+    handleSubmit,
   });
 
   return (
