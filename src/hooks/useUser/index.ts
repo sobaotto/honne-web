@@ -8,6 +8,8 @@ export const useUser = () => {
   React.useEffect(() => {
     fetch(`http://localhost:3001/users`, {
       method: "GET",
+      mode: "cors",
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
