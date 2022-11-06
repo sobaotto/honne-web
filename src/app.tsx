@@ -6,6 +6,7 @@ import { showingPagePath, User } from "./types";
 import AnswerPage from "./components/pages/AnswerPage";
 import LoginPage from "./components/pages/LoginPage";
 import { useSession } from "./hooks/useSession";
+import SignUpPage from "./components/pages/SignUpPage";
 
 export const App = () => {
   const [currentUser, setCurrentUser] = React.useState<User | null>(null);
@@ -19,7 +20,10 @@ export const App = () => {
       {isLoading ? (
         <div>ローディング中</div>
       ) : !currentUser ? (
-        <LoginPage setCurrentUser={setCurrentUser} />
+        <>
+          <SignUpPage setCurrentUser={setCurrentUser} />
+          <LoginPage setCurrentUser={setCurrentUser} />
+        </>
       ) : (
         <>
           <Sidebar
