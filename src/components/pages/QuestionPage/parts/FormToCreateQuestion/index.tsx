@@ -7,7 +7,7 @@ import { useUser } from "~/hooks/useUser";
 const FormToCreateQuestion = React.memo(
   ({
     currentUser,
-    setIsPosted,
+    fetchQuestions,
     setSelectedQuestionIndex,
     setIsCreatingQuestion,
   }: FormToCreateQuestionProps) => {
@@ -33,9 +33,10 @@ const FormToCreateQuestion = React.memo(
       })
         .then((res) => res.json())
         .then((data) => {
-          setIsPosted(true);
           setSelectedQuestionIndex(0);
           setIsCreatingQuestion(false);
+
+          fetchQuestions();
         });
     });
 

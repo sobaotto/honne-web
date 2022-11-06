@@ -10,9 +10,8 @@ export const useQuestion = ({
     []
   );
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
-  const [isPosted, setIsPosted] = React.useState<boolean>(false);
 
-  React.useEffect(() => {
+  const fetchQuestions = React.useCallback(() => {
     fetch(`http://localhost:3001/questions?name=${currentUser.name}`, {
       method: "GET",
       mode: "cors",
@@ -22,17 +21,17 @@ export const useQuestion = ({
       .then((data) => {
         setQuestionItems(data.questions);
         setIsLoading(false);
-        // TODO:違う方法で新規投稿したデータを取得する。
-        // （isPostedで管理すると2回リクエストが送られるので、直さないといけない。）
-        setIsPosted(false);
       });
-  }, [isPosted, showingPagePath]);
+  }, [setQuestionItems, setIsLoading]);
+
+  React.useEffect(() => {
+    fetchQuestions();
+  }, [showingPagePath]);
 
   return {
     questionItems,
     isLoading,
     setQuestionItems,
-    isPosted,
-    setIsPosted,
+    fetchQuestions,
   };
 };

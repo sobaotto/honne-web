@@ -6,7 +6,7 @@ import { FormData, FormToCreateAnswerProps } from "./types";
 const FormToCreateAnswer = React.memo(
   ({
     askedQuestionItem,
-    setIsPosted,
+    fetchAnswers,
     setSelectedQuestionIndex,
   }: FormToCreateAnswerProps) => {
     const {
@@ -31,8 +31,9 @@ const FormToCreateAnswer = React.memo(
       })
         .then((res) => res.json())
         .then((data) => {
-          setIsPosted(true);
           setSelectedQuestionIndex(0);
+
+          fetchAnswers();
         });
     });
 

@@ -15,7 +15,7 @@ import { AnswerPageProps } from "./types";
 
 const AnswerPage = React.memo(({ showingPagePath }: AnswerPageProps) => {
   const [t] = useTranslation();
-  const { askedQuestionItems, isLoading, setIsPosted } = useAnswer({
+  const { askedQuestionItems, isLoading, fetchAnswers } = useAnswer({
     showingPagePath,
   });
   const [selectedQuestionIndex, setSelectedQuestionIndex] = React.useState<
@@ -79,7 +79,7 @@ const AnswerPage = React.memo(({ showingPagePath }: AnswerPageProps) => {
               ) : (
                 <FormToCreateAnswer
                   askedQuestionItem={askedQuestionItems[selectedQuestionIndex]}
-                  setIsPosted={setIsPosted}
+                  fetchAnswers={fetchAnswers}
                   setSelectedQuestionIndex={setSelectedQuestionIndex}
                 />
               )}

@@ -2,7 +2,7 @@ import { askedQuestionItem } from "~/types";
 
 export type FormToCreateAnswerProps = {
   askedQuestionItem: askedQuestionItem;
-  setIsPosted: React.Dispatch<React.SetStateAction<boolean>>;
+  fetchAnswers: () => void;
   setSelectedQuestionIndex: React.Dispatch<React.SetStateAction<number | null>>;
 };
 

@@ -17,7 +17,7 @@ import { QuestionPageProps } from "./types";
 const QuestionPage = React.memo(
   ({ showingPagePath, currentUser }: QuestionPageProps) => {
     const [t] = useTranslation();
-    const { questionItems, isLoading, setIsPosted } = useQuestion({
+    const { questionItems, isLoading, fetchQuestions } = useQuestion({
       currentUser,
       showingPagePath,
     });
@@ -63,7 +63,7 @@ const QuestionPage = React.memo(
         {isCreatingQuestion ? (
           <FormToCreateQuestion
             currentUser={currentUser}
-            setIsPosted={setIsPosted}
+            fetchQuestions={fetchQuestions}
             setSelectedQuestionIndex={setSelectedQuestionIndex}
             setIsCreatingQuestion={setIsCreatingQuestion}
           />
