@@ -69,7 +69,7 @@ const QuestionPage = React.memo(
           />
         ) : (
           <QuestionDetail>
-            {selectedQuestionIndex !== null && questionItems && (
+            {selectedQuestionIndex !== null && questionItems.length && (
               <>
                 <br />
                 <div>

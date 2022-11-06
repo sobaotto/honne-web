@@ -47,7 +47,7 @@ const AnswerPage = React.memo(({ showingPagePath }: AnswerPageProps) => {
       </AnswersContainer>
       {
         <AnswerDetail>
-          {selectedQuestionIndex !== null && askedQuestionItems && (
+          {selectedQuestionIndex !== null && askedQuestionItems.length && (
             <>
               <br />
               <div>
