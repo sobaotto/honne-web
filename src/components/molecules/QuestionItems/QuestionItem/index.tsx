@@ -21,7 +21,7 @@ const QuestionItem = React.memo(
         <UpSideWrapper>
           <LeftSideWrapper>
             <UserImg src={userPhoto} />
-            <RespondentName>{questionItem.respondent_name}</RespondentName>
+            <RespondentName>{questionItem.respondent.name}</RespondentName>
           </LeftSideWrapper>
           <RightSideWrapper>
             <QuestionStatus

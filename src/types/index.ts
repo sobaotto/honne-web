@@ -17,14 +17,22 @@ export type Answer = {
   text: string;
 };
 
+export type Respondent = {
+  name: string;
+};
+
+export type Questioner = {
+  name: string;
+};
+
 export type QuestionItem = {
-  respondent_name: string;
+  respondent: Respondent;
   question: Question;
   answer?: Answer;
 };
 
 export type askedQuestionItem = {
-  questioner_name: string;
+  questioner: Questioner;
   question: Question;
   answer?: Answer;
 };
