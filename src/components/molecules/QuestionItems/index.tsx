@@ -19,10 +19,7 @@ const QuestionItems = React.memo(
                 isSelected={index === selectedQuestionIndex}
                 questionItem={questionItem}
                 onClick={() => {
-                  index === selectedQuestionIndex
-                    ? setSelectedQuestionIndex(null)
-                    : setSelectedQuestionIndex(index);
-
+                  setSelectedQuestionIndex(index);
                   setIsCreatingQuestion(false);
                 }}
               />

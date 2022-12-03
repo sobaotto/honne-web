@@ -17,9 +17,8 @@ const AnswerPage = React.memo(({ showingPagePath }: AnswerPageProps) => {
   const { askedQuestionItems, isLoading, fetchAnswers } = useAnswer({
     showingPagePath,
   });
-  const [selectedQuestionIndex, setSelectedQuestionIndex] = React.useState<
-    number | null
-  >(null);
+  const [selectedQuestionIndex, setSelectedQuestionIndex] =
+    React.useState<number>(0);
 
   return (
     <Container>

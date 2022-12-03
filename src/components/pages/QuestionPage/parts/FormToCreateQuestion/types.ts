@@ -3,7 +3,7 @@ import { User } from "~/types";
 export type FormToCreateQuestionProps = {
   currentUser: User;
   fetchQuestions: () => void;
-  setSelectedQuestionIndex: React.Dispatch<React.SetStateAction<number | null>>;
+  setSelectedQuestionIndex: React.Dispatch<React.SetStateAction<number>>;
   setIsCreatingQuestion: React.Dispatch<React.SetStateAction<boolean>>;
 };
 

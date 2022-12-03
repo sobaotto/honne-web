@@ -18,9 +18,7 @@ const AnswerItems = React.memo(
                 isSelected={index === selectedQuestionIndex}
                 askedQuestionItem={askedQuestionItem}
                 onClick={() => {
-                  index === selectedQuestionIndex
-                    ? setSelectedQuestionIndex(null)
-                    : setSelectedQuestionIndex(index);
+                  setSelectedQuestionIndex(index);
                 }}
               />
             );
