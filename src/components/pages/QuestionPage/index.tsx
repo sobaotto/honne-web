@@ -8,6 +8,7 @@ import {
   Container,
   QuestionsContainer,
   HeaderContainer,
+  QuestionDetail,
   Title,
   ButtonToCreateNewQuestion,
 } from "./styled";
@@ -49,16 +50,18 @@ const QuestionPage = React.memo(
                 setIsCreatingQuestion={setIsCreatingQuestion}
               />
             </QuestionsContainer>
-            {isCreatingQuestion ? (
-              <FormToCreateQuestion
-                currentUser={currentUser}
-                fetchQuestions={fetchQuestions}
-                setSelectedQuestionIndex={setSelectedQuestionIndex}
-                setIsCreatingQuestion={setIsCreatingQuestion}
-              />
-            ) : (
-              <Chat questionItem={questionItems[selectedQuestionIndex]} />
-            )}
+            <QuestionDetail>
+              {isCreatingQuestion ? (
+                <FormToCreateQuestion
+                  currentUser={currentUser}
+                  fetchQuestions={fetchQuestions}
+                  setSelectedQuestionIndex={setSelectedQuestionIndex}
+                  setIsCreatingQuestion={setIsCreatingQuestion}
+                />
+              ) : (
+                <Chat questionItem={questionItems[selectedQuestionIndex]} />
+              )}
+            </QuestionDetail>
           </>
         )}
       </Container>

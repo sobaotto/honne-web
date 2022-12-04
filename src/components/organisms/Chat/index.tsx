@@ -1,11 +1,22 @@
 import React from "react";
-import { Container } from "./styled";
+import {
+  Container,
+  HeaderContainer,
+  RespondentImg,
+  RespondentName,
+  ChatContainer
+} from "./styled";
 import { ChatProps } from "./types";
+import userPhoto from "./userPhoto.png";
 
 const Chat = React.memo(({ questionItem }: ChatProps) => {
   return (
     <Container>
-      <>
+      <HeaderContainer>
+        <RespondentImg src={userPhoto} />
+        <RespondentName>{questionItem.respondent.name}</RespondentName>
+      </HeaderContainer>
+      <ChatContainer>
         <br />
         <div>
           <u>タイトル</u>
@@ -27,7 +38,7 @@ const Chat = React.memo(({ questionItem }: ChatProps) => {
             <div>{questionItem.answer?.text}</div>
           </>
         )}
-      </>
+      </ChatContainer>
     </Container>
   );
 });

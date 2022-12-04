@@ -32,3 +32,12 @@ export const Title = styled.div`
 export const ButtonToCreateNewQuestion = styled(
   Button
 )<ButtonToCreateNewQuestionProps>``;
+
+export const QuestionDetail = styled.div`
+  flex: 1;
+  margin-left: ${px2rem(64)};
+  margin-right: ${px2rem(60)};
+  margin-top: ${px2rem(109)};
+  height: 85%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+`;
